@@ -15,6 +15,9 @@
 	class List.Panel extends App.Views.ItemView
 		template: "crew/list/_panel"
 
+		triggers:
+			"click #new-crew" : "new:crew:button:clicked"
+
 	class List.New extends App.Views.ItemView
 		template: "crew/list/_new"
 

@@ -1,7 +1,7 @@
 <li class="crew-member">
 	<div class="large-3 columns text-center">
 		<a class="th radius" href="#">
-			<img src="assets/fry.jpg" />
+			<img src="assets/<%= @avatar %>" />
 		</a>
 	</div>
 	<div class="large-9 columns stats-container">
@@ -9,23 +9,23 @@
 			<div class="large-6 columns">
 				<div class="row">
 					<div class="large-5 columns attribute-label">Age</div>
-					<div class="large-7 columns">24</div>
+					<div class="large-7 columns"><%= @age %></div>
 				</div>
 				<div class="row">
 					<div class="large-5 columns attribute-label">Name</div>
-					<div class="large-7 columns">Philip Fry</div>
+					<div class="large-7 columns"><%= @name %></div>
 				</div>
 				<div class="row">
 					<div class="large-5 columns attribute-label">Title</div>
-					<div class="large-7 columns">Delivery Boy</div>
+					<div class="large-7 columns"><%= @title %></div>
 				</div>
 				<div class="row">
 					<div class="large-5 columns attribute-label">Species</div>
-					<div class="large-7 columns">Human</div>
+					<div class="large-7 columns"><%= @species %></div>
 				</div>
 				<div class="row">
 					<div class="large-5 columns attribute-label">Origin</div>
-					<div class="large-7 columns">Earth</div>
+					<div class="large-7 columns"><%= @origin %></div>
 				</div>
 			</div>
 			<div class="large-6 columns">
