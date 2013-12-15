@@ -1,6 +1,8 @@
 PlanetExpress::Application.routes.draw do
-  get "static" => "application#index"
-  root :to => "application#index"
+  resources :crew
+
+  get "static" => "application#static"
+  root :to => 'application#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
