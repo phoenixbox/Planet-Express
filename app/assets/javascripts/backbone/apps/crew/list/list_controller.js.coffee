@@ -5,8 +5,11 @@
 		list: ->
 			@layout = @getLayoutView()
 
-			@layout.on 'show', ->
-				@titleRegion
+			@layout.on 'show', =>
+				@titleRegion()
+				@panelRegion()
+				@newRegion()
+				@crewRegion()
 
 			App.mainRegion.show @layout
 
@@ -14,8 +17,29 @@
 			titleView = @getTitleView()
 			@layout.titleRegion.show titleView
 
+		panelRegion: ->
+			panelView = @getPanelView()
+			@layout.panelRegion.show panelView
+
+		newRegion: ->
+			newView = @getNewView()
+			@layout.newRegion.show newView
+
+		crewRegion: ->
+			crewView = @getCrewView()
+			@layout.crewRegion.show crewView
+
+		getCrewView: ->
+			new List.Crew
+
+		getNewView: ->
+			new List.New
+
 		getTitleView: ->
 			new List.Title
+
+		getPanelView: ->
+			new List.Panel
 
 		getLayoutView: ->
 			new List.Layout
