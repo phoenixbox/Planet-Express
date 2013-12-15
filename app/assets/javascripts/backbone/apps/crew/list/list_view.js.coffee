@@ -10,13 +10,25 @@
 			crewRegion: 	"#crew-region"
 
 	class List.Title extends App.Views.ItemView
-		template: 'crew/list/_title'
+		template: "crew/list/_title"
 
 	class List.Panel extends App.Views.ItemView
-		template: 'crew/list/_panel'
+		template: "crew/list/_panel"
 
 	class List.New extends App.Views.ItemView
-		template: 'crew/list/_new'
+		template: "crew/list/_new"
 
-	class List.Crew extends App.Views.ItemView
-		template: 'crew/list/_crew'
+	class List.Empty extends App.Views.ItemView
+		template: "crew/list/_empty"
+		tagName: "li"
+
+	class List.CrewMember extends App.Views.ItemView
+		template: "crew/list/_crew_member"
+		tagName: "li"
+		className: "crew-member"
+
+	class List.Crew extends App.Views.CompositeView
+		template: "crew/list/_crew"
+		itemView: List.CrewMember
+		emptyView: List.Empty
+		itemViewContainer: "ul"
