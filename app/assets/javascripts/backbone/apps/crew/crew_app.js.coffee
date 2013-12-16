@@ -11,8 +11,14 @@
 		newCrew: ->
 			CrewApp.New.Controller.newCrew()
 
+		edit: (member) ->
+			CrewApp.Edit.Controller.edit member
+
 	App.reqres.setHandler "new:crew:member:view", ->
 		API.newCrew()
+
+	App.vent.on "crew:member:clicked", (member) ->
+		API.edit member
 
 	App.addInitializer ->
 		new CrewApp.Router

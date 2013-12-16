@@ -2,9 +2,6 @@
 
 	App = new Marionette.Application
 
-	App.on "initialize:before", (options) ->
-		App.environment = options.environment
-
 	App.addRegions
 		headerRegion: "#header-region"
 		mainRegion:		"#main-region"

@@ -30,6 +30,9 @@
 		tagName: "li"
 		className: "crew-member"
 
+		events:
+			"click" : -> @trigger "crew:member:clicked", @model
+
 	class List.Crew extends App.Views.CompositeView
 		template: "crew/list/_crew"
 		itemView: List.CrewMember

@@ -14,6 +14,7 @@
 
 			App.mainRegion.show @layout
 
+
 		titleRegion: ->
 			titleView = @getTitleView()
 			@layout.titleRegion.show titleView
@@ -37,6 +38,10 @@
 
 		crewRegion: (crew) ->
 			crewView = @getCrewView crew
+
+			crewView.on "childview:crew:member:clicked", (child, member) ->
+				App.vent.trigger "crew:member:clicked", member
+
 			@layout.crewRegion.show crewView
 
 		getCrewView: (crew) ->
