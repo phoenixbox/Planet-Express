@@ -1,12 +1,14 @@
 @PlanetExpress.module "CrewApp.Edit", (Edit, App, Backbone, Marionette, $, _) ->
 
-	Edit.Controller =
+  Edit.Controller =
 
-		edit: (crew) ->
-			editView = @getEditView crew
-			# Replace the main region with the edit view
-			App.mainRegion.show editView
+    edit: (id, crew) ->
+      crew or= App.request "crew:entity", id
 
-		getEditView: (crew) ->
-			new Edit.Crew
-				model: crew
+      editView = @getEditView crew
+
+      App.mainRegion.show editView
+
+    getEditView: (crew) ->
+      new Edit.Crew
+        model: crew

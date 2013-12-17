@@ -23,6 +23,7 @@ gem 'rabl'
 gem 'oj'
 gem 'gon'
 gem 'js-routes'
+gem 'pry'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -4,4 +4,8 @@ class CrewController < ApplicationController
 	def index
 		@crew = Crew.all
 	end
+
+	def show
+		@member = Crew.find params[:id]
+	end
 end
