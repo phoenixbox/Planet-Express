@@ -1,25 +1,32 @@
 @PlanetExpress.module "Components.Form", (Form, App, Backbone, Marionette, $, _) ->
 
-	class Form.Wrapper extends App.Views.Layout
+	class Form.FormWrapper extends App.Views.Layout
 		template: "form/form"
 
-		tagName : "form"
+		tagName: "form"
 		attributes: ->
-			"data-type" : @getFormDataType
+			"data-type": @getFormDataType()
 
 		regions:
-			formContentRegion : "#form-content-region"
+			formContentRegion: "#form-content-region"
+
+		ui:
+			buttonContainer: "ul.inline-list"
 
 		serializeData: ->
 			footer: @options.config.footer
-			buttons: @options.config.buttons
+			buttons: @options.buttons?.toJSON() if false
 
 		onShow: ->
 			_.defer =>
-				@focusFirstInput()
+				@focusFirstInput() if @options.config.focusFirstInput
+				@buttonPlacement() if @options.buttons
+
+		buttonPlacement: ->
+			@ui.buttonContainer.addClass @options.buttons.placement
 
 		focusFirstInput: ->
-			@$(":input:visible:enabled:first")focus()
+			@$(":input:visible:enabled:first").focus()
 
 		getFormDataType: ->
-			if @model isNew() true "new" else "edit"
+			if @model.isNew() then "new" else "edit"

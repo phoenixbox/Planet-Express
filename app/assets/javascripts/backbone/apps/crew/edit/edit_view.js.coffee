@@ -11,7 +11,4 @@
 
 		form:
 			focusFirstInput: false
-			buttons:
-				primary: "primary"
-				cancel: "cancel"
-				placement: "left"
+			buttons: false
