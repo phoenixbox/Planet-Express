@@ -13,6 +13,9 @@
 		ui:
 			buttonContainer: "ul.inline-list"
 
+		triggers:
+			"submit" : "form:submit"
+
 		initialize: ->
 			@setInstancePropertiesFor	"config","buttons"
 

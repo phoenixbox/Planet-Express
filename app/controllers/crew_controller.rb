@@ -8,4 +8,13 @@ class CrewController < ApplicationController
 	def show
 		@member = Crew.find params[:id]
 	end
+
+	def update
+		@member = Crew.find params[:id]
+		if @member.update_attributes params
+			render "crew/show"
+		else
+			@member
+		end
+	end
 end
