@@ -18,6 +18,7 @@
 
 		getFormLayout: (options = {}) ->
 			config = @getDefaultConfig _.result(@contentView, "form")
+			_.extend config, options
 
 			buttons = @getButtons config.buttons
 
@@ -32,7 +33,7 @@
 				focusFirstInput: true
 
 		getButtons: (buttons = {}) ->
-			App.request("form:buttons:entities", buttons, @contentView.model) unless buttons is false
+			App.request("form:button:entities", buttons, @contentView.model) unless buttons is false
 
 
 	App.reqres.setHandler "form:wrapper", (contentView, options ={}) ->

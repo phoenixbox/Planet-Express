@@ -13,17 +13,20 @@
 		ui:
 			buttonContainer: "ul.inline-list"
 
+		initialize: ->
+			@setInstancePropertiesFor	"config","buttons"
+
 		serializeData: ->
-			footer: @options.config.footer
-			buttons: @options.buttons?.toJSON() if false
+			footer: @config.footer
+			buttons: @buttons?.toJSON() if false
 
 		onShow: ->
 			_.defer =>
-				@focusFirstInput() if @options.config.focusFirstInput
-				@buttonPlacement() if @options.buttons
+				@focusFirstInput() if @config.focusFirstInput
+				@buttonPlacement() if @buttons
 
 		buttonPlacement: ->
-			@ui.buttonContainer.addClass @options.buttons.placement
+			@ui.buttonContainer.addClass @buttons.placement
 
 		focusFirstInput: ->
 			@$(":input:visible:enabled:first").focus()
