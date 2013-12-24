@@ -5,9 +5,24 @@
     edit: (id, crew) ->
       crew or= App.request "crew:entity", id
 
+      App.execute "when:fetched", [crew], =>
+        @layout = @getLayoutView crew
+
+        @layout.on "show", =>
+          @formRegion crew
+
+        App.mainRegion.show @layout
+
+    formRegion: (crew) ->
       editView = @getEditView crew
 
-      App.mainRegion.show editView
+      formView = App.request "form:wrapper", editView
+
+      @layout.formRegion.show formView
+
+    getLayoutView: (crew) ->
+      new Edit.Layout
+        model: crew
 
     getEditView: (crew) ->
       new Edit.Crew
