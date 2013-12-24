@@ -14,10 +14,10 @@
 			console.log "Controller closed", @
 
 		formContentRegion: ->
-			@layout.formContentRegion.show @contentView
+			@formLayout.formContentRegion.show @contentView
 
 		getFormLayout: (options = {}) ->
-			config = @getDefaultConfig _.results(@contentView, "form")
+			config = @getDefaultConfig _.result(@contentView, "form")
 
 			buttons = @getButtons config.buttons
 
@@ -34,9 +34,10 @@
 		getButtons: (buttons = {}) ->
 			App.request("form:buttons:entities", buttons, @contentView.model) unless buttons is false
 
-	App.reqres.setHandler "form:wrapper", (contentView, options = {}) ->
-		throw new Error "No model found inside of form's contentView" unless contentView.model
-		formController = new Form.Controller
-			view: contentView
-			config: options
-		formController.formLayout
+
+	App.reqres.setHandler "form:wrapper", (contentView, options ={}) ->
+			throw new Error "No model found inside of the forms content view!" unless contentView.model
+			formController = new Form.Controller
+				view: contentView
+				config: options
+			formController.formLayout
